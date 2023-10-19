@@ -27,10 +27,28 @@ const mostrarMenu = () => {
  mostrarMenu(); 
 
 const agregarTipodemenu = () => {
-let menu = prompt('elegi el tipo de menu que vas a querer');
-let promocion_de_la_semana = prompt('elegi  take o way o buscarlo por el local');
-let precio = prompt('elegi la forma de pago');
+const sugerencia = prompt('ingresa la sugerencia');
+const nuevaPromocion = prompt('ingresa la promocion de la semana (por ejemplo,"take o way" o "buscarlo por el local")');
+const nuevoPrecio = parseFloat(prompt('ingresa el precio del plato'));
 
+if (sugerencia && nuevaPromocion && !isNaN(nuevoPrecio)) {
+    const nuevoMenu = {
+        menu: sugerencia,
+        promocion_de_la_semana: nuevaPromocion,
+        precio: nuevoPrecio,
+        stock: true,
 
+    };
+
+    menu.push(nuevoMenu);
+    console.log(`El plato "${sugerencia}" se agrego al menu`);
+    mostrarMenu();
+} else {
+console.log('Los datos ingresados no son validos. Ingresa los datos correctamente');
 
 }
+
+};
+
+mostrarMenu();
+agregarTipodemenu();
